@@ -1,6 +1,6 @@
 # Clockwork Gold
 
-A dark color theme for Ghostty, iTerm2 and Zed. It descends from Monokai, sits on a warm near-black (`#1d1c19`), and uses clockwork.com's `#FFCC00` for the cursor, accents and yellow.
+A dark color theme for Ghostty, iTerm2, kitty and Zed. It descends from Monokai, sits on a warm near-black (`#1d1c19`), and uses clockwork.com's `#FFCC00` for the cursor, accents and yellow.
 
 ![Clockwork Gold palette](screenshots/clockwork-gold.png)
 
@@ -19,6 +19,16 @@ Then add `theme = Clockwork Gold` to `~/.config/ghostty/config`.
 ## iTerm2
 
 Download [`iterm2/Clockwork Gold.itermcolors`](iterm2/Clockwork%20Gold.itermcolors) and double-click it to import. Then pick it under Settings > Profiles > Colors > Color Presets.
+
+## kitty
+
+```sh
+kitten themes --reload-in=all "Clockwork Gold"
+```
+
+That works once the theme is in kitty-themes. Until then, save [`kitty/Clockwork_Gold.conf`](kitty/Clockwork_Gold.conf) as `~/.config/kitty/current-theme.conf` and add `include current-theme.conf` to `kitty.conf`.
+
+![Clockwork Gold in kitty](screenshots/kitty.png)
 
 ## Zed
 
