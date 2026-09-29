@@ -1,0 +1,31 @@
+{
+  "name": "clockwork-gold",
+  "displayName": "Clockwork Gold",
+  "description": "A dark theme built on clockwork.com's #FFCC00.",
+  "version": "0.1.0",
+  "publisher": "clockwork",
+  "author": "Sonja Leaf <sonja@clockwork.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ClockworkNet/clockwork-gold"
+  },
+  "engines": {
+    "vscode": "^1.70.0"
+  },
+  "categories": ["Themes"],
+  "keywords": ["dark", "theme", "monokai", "yellow", "gold"],
+  "galleryBanner": {
+    "color": "#1d1c19",
+    "theme": "dark"
+  },
+  "contributes": {
+    "themes": [
+      {
+        "label": "Clockwork Gold",
+        "uiTheme": "vs-dark",
+        "path": "./themes/clockwork-gold-color-theme.json"
+      }
+    ]
+  }
+}

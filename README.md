@@ -1,6 +1,6 @@
 # Clockwork Gold
 
-A dark color theme for Ghostty, iTerm2, kitty and Zed. It descends from Monokai, sits on a warm near-black (`#1d1c19`), and uses clockwork.com's `#FFCC00` for the cursor, accents and yellow.
+A dark color theme for Ghostty, iTerm2, kitty, Zed, VS Code and Cursor. It descends from Monokai, sits on a warm near-black (`#1d1c19`), and uses clockwork.com's `#FFCC00` for the cursor, accents and yellow.
 
 ![Clockwork Gold palette](screenshots/clockwork-gold.png)
 
@@ -35,6 +35,20 @@ That works once the theme is in kitty-themes. Until then, save [`kitty/Clockwork
 Search for "Clockwork Gold" in the Extensions panel (`zed: extensions`), install it, and pick it with `theme selector: toggle`.
 
 To install without the extension, copy `zed/themes/clockwork-gold.json` into `~/.config/zed/themes/`.
+
+## VS Code and Cursor
+
+Build the extension from this repo and install the `.vsix` locally:
+
+```sh
+cd vscode
+pnpm dlx @vscode/vsce package
+code --install-extension clockwork-gold-0.1.0.vsix     # or: cursor --install-extension ...
+```
+
+You can also install it from the editor. Run `Extensions: Install from VSIX...` from the command palette and choose the file. Then run `Preferences: Color Theme` and pick Clockwork Gold.
+
+![Clockwork Gold in VS Code](screenshots/vscode.png)
 
 ## Palette
 
