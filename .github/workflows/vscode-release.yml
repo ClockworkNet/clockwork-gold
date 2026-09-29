@@ -1,0 +1,47 @@
+name: vscode release
+
+on:
+  push:
+    branches: [main]
+    paths: ["vscode/**"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+env:
+  # Pinned so a build means the same thing next month. 4.0.0 is the version the
+  # local build in the README was checked with.
+  VSCE_VERSION: 4.0.0
+
+jobs:
+  vsix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Package
+        working-directory: vscode
+        run: |
+          set -euo pipefail
+          corepack enable pnpm
+          pnpm dlx "@vscode/vsce@${VSCE_VERSION}" package -o clockwork-gold.vsix
+
+      # One release per extension version. The asset name has no version in it, so
+      # releases/latest/download/clockwork-gold.vsix always points at the newest.
+      # A push that doesn't bump the version replaces the asset on that release.
+      - name: Publish release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          version=$(jq -r .version vscode/package.json)
+          tag="vscode-v${version}"
+          if gh release view "$tag" >/dev/null 2>&1; then
+            gh release upload "$tag" vscode/clockwork-gold.vsix --clobber
+          else
+            gh release create "$tag" vscode/clockwork-gold.vsix \
+              --target "$GITHUB_SHA" --latest \
+              --title "VS Code / Cursor ${version}" \
+              --notes "Install: \`code --install-extension clockwork-gold.vsix\` (or \`cursor\`)."
+          fi

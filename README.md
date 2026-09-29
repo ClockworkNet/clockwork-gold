@@ -38,15 +38,15 @@ To install without the extension, copy `zed/themes/clockwork-gold.json` into `~/
 
 ## VS Code and Cursor
 
-Build the extension from this repo and install the `.vsix` locally:
+Download the latest build and install it:
 
 ```sh
-cd vscode
-pnpm dlx @vscode/vsce package
-code --install-extension clockwork-gold-0.1.0.vsix     # or: cursor --install-extension ...
+curl -fsSLO https://github.com/ClockworkNet/clockwork-gold/releases/latest/download/clockwork-gold.vsix && code --install-extension clockwork-gold.vsix
 ```
 
-You can also install it from the editor. Run `Extensions: Install from VSIX...` from the command palette and choose the file. Then run `Preferences: Color Theme` and pick Clockwork Gold.
+For Cursor, swap `code` for `cursor`. Then run `Preferences: Color Theme` and pick Clockwork Gold.
+
+A GitHub Action builds the `.vsix` and attaches it to a release whenever `vscode/` changes on `main`. To build it yourself, run `pnpm dlx @vscode/vsce package` in `vscode/`.
 
 ![Clockwork Gold in VS Code](screenshots/vscode.png)
 
