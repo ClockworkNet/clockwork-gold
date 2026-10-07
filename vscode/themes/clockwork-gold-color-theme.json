@@ -184,6 +184,7 @@
     "gitDecoration.renamedResourceForeground": "#5fcdf5",
     "gitDecoration.conflictingResourceForeground": "#ff9900",
     "gitDecoration.ignoredResourceForeground": "#605d57",
+    "scmGraph.historyItemHoverDefaultLabelForeground": "#1d1c19",
 
     "panel.background": "#1d1c19",
     "panel.border": "#383633",
